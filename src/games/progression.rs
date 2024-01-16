@@ -1,8 +1,7 @@
 use crate::{consts::PROGRESSION_LENGTH, utils::get_rand_num};
 
 pub fn get_progression_and_missed_num() -> (String, String) {
-    let start = get_rand_num(1, 10);
-    let step = get_rand_num(1, 10);
+    let (start, step) = (get_rand_num(1, 10), get_rand_num(1, 10));
 
     let mut progression = Vec::new();
     for i in 0..PROGRESSION_LENGTH {
