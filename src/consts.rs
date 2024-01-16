@@ -1,7 +1,7 @@
-pub const AMOUNT_OF_ROUNDS: u8 = 3;
+pub const AMOUNT_OF_ROUNDS: i32 = 3;
 
 pub const MATH_SIGNS: [&str; 3] = ["+", "-", "*"];
-pub const PROGRESSION_LENGTH: u8 = 10;
+pub const PROGRESSION_LENGTH: i32 = 10;
 
 pub const EVEN_INSTRUCTION: &str = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
 pub const PRIME_INSTRUCTION: &str =
