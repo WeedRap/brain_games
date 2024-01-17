@@ -2,12 +2,12 @@ use crate::utils::get_rand_num;
 
 fn is_prime(num: i32) -> bool {
     if num < 2 {
-        false;
+        return false;
     }
     let prime_seq = (num as f64).sqrt() as i32;
     for i in 2..=prime_seq {
         if num % i == 0 {
-            false;
+            return false;
         }
     }
     true
