@@ -17,6 +17,6 @@ num = "0.4.1"
 [dev-dependencies]
 regex = "1.10.2"
 cargo-tarpaulin = "0.27.3"
-
+clippy = "0.0.302"
 
 
