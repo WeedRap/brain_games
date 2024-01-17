@@ -1,3 +1,6 @@
+### Linter and tests status
+[![RustCI](https://github.com/WeedRap/brain_games/actions/workflows/rustci.yml/badge.svg)](https://github.com/WeedRap/brain_games/actions/workflows/rustci.yml)
+[![codecov](https://codecov.io/gh/WeedRap/brain_games/graph/badge.svg?token=NAERXHD2WB)](https://codecov.io/gh/WeedRap/brain_games)
 # Brain Games 🧠🎮
 Brain Games is a collection of fun and educational games designed to exercise your brain and improve cognitive abilities. These games cover a range of mental skills such as recognizing even and odd numbers, understanding progressions, and performing quick mental calculations.
 ___
