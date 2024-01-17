@@ -7,18 +7,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
       - name: Run Clippy
-        run: cargo clippy -- -D warnings
+        uses: actions-rs/cargo@v1
+        with:
+          command: clippy
+#          args: --deny warnings
 
       - name: Self check
-        run: cargo check
+        uses: actions-rs/cargo@v1
+        with:
+          command: check
 
-      - name: Test games
-        run: |
-          cargo install cargo-tarpaulin
-          cargo tarpaulin --test test_games --out xml
+      - name: Run cargo-tarpaulin
+        uses: actions-rs/tarpaulin@v0.1
+        with:
+          args: '-- --test test_games'
+          version: '0.27.3'
+#      - name: Test games
+#        uses: actions-rs/cargo@v1
+#        with:
+#          command: tarpaulin
+#          args: --test test_games --out xml
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
-#        env:
-#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}}
+          files: ./cobertura.xml
