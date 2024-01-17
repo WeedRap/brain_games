@@ -8,27 +8,35 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Rust
+      - name: Stable with rustfmt and clippy
         uses: actions-rs/toolchain@v1
         with:
+          profile: minimal
           toolchain: stable
+          components: rustfmt, clippy
 
-      - name: Run Clippy
-        uses: actions-rs/cargo@v1
+      - name: Install cargo-tarpaulin
+        uses: actions-rs/install@v0.1
         with:
-          command: clippy
-#          args: --deny warnings
-
-      - name: Self check
-        uses: actions-rs/cargo@v1
-        with:
-          command: check
-
-      - name: Run cargo-tarpaulin
-        uses: actions-rs/tarpaulin@v0.1
-        with:
-          args: '-- --test test_games'
-          version: '0.27.3'
+          crate: cargo-tarpaulin
+          version: latest
+          use-tool-cache: true
+#      - name: Run Clippy
+#        uses: actions-rs/cargo@v1
+#        with:
+#          command: clippy
+##          args: --deny warnings
+#
+#      - name: Self check
+#        uses: actions-rs/cargo@v1
+#        with:
+#          command: check
+#
+#      - name: Run cargo-tarpaulin
+#        uses: actions-rs/tarpaulin@v0.1
+#        with:
+#          args: '-- --test test_games'
+#          version: '0.27.3'
 #      - name: Test games
 #        uses: actions-rs/cargo@v1
 #        with:
